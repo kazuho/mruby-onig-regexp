@@ -31,6 +31,11 @@ MRuby::Gem::Specification.new('mruby-onig-regexp') do |spec|
         _pp 'extracting', "Onigmo-#{version}"
         `gzip -dc "#{dir}/Onigmo-#{version}.tar.gz" | tar xf -`
       end
+      unless ENV['OS'] == 'Windows_NT'
+        Dir.chdir(oniguruma_dir) do
+          `patch -p0 < #{dir}/Onigmo-bsd-compat.patch`
+        end
+      end
     end
 
     def run_command(env, command)
