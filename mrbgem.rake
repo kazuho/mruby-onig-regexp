@@ -12,7 +12,7 @@ MRuby::Gem::Specification.new('mruby-onig-regexp') do |spec|
     linker.libraries = []
 
     version = '5.15.0'
-    oniguruma_dir = "#{build_dir}/Onigmo-Onigmo-#{version}"
+    oniguruma_dir = "#{build_dir}/onig-#{version}"
     oniguruma_lib = libfile "#{oniguruma_dir}/.libs/libonig"
     unless ENV['OS'] == 'Windows_NT'
       oniguruma_lib = libfile "#{oniguruma_dir}/.libs/libonig"
